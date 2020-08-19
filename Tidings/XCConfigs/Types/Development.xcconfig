@@ -1,0 +1,8 @@
+//
+// Created by Kiran Thorat.
+// Copyright © 2020 Kiran Thorat. All rights reserved.
+//
+
+CODE_SIGN_IDENTITY = Apple Development
+PROVISIONING_PROFILE_SPECIFIER[sdk=*] = match Development com.example.tidings
+//PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*] = match Development com.example.tidings catalyst

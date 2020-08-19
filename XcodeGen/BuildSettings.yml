@@ -1,0 +1,13 @@
+
+# https://github.com/yonaskolb/XcodeGen/blob/master/Docs/ProjectSpec.md
+
+################################################################################
+# Build Settings
+################################################################################
+
+# https://github.com/yonaskolb/XcodeGen/blob/master/Docs/ProjectSpec.md#settings
+
+# All the build settings should be configured in Xcconfig, except PRODUCT_NAME.
+# It is required for XcodeGen.
+settings:
+  PRODUCT_NAME = Tidings

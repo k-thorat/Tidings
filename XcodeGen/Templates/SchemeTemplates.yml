@@ -1,0 +1,92 @@
+
+################################################################################
+# Schemes Template
+# https://github.com/yonaskolb/XcodeGen/blob/master/Docs/ProjectSpec.md#scheme-template
+################################################################################
+
+schemeTemplates:
+
+  # Set Scheme & Configuration to use.
+  TemplateAllTestsScheme:
+    templates:
+      - TemplateConfigScheme
+    build:
+      config: ${configName}
+      # Targets to build and schemes
+      targets:
+        ${targetName}: [build, run, profile]
+        ${unitTestTargetName}: [test]
+        ${uiTestTargetName}: [test]
+    run:
+      showNonLocalizedStrings: true
+    test:
+      config: ${configName}
+      gatherCoverageData: true
+      targets:
+        - name: ${unitTestTargetName}
+          parallelizable: true
+          randomExecutionOrder: true
+        - name: ${uiTestTargetName}
+          parallelizable: true
+          randomExecutionOrder: true
+
+  # Set Scheme & Configuration to use.
+  TemplateUnitTestsScheme:
+    templates:
+      - TemplateConfigScheme
+    build:
+      config: ${configName}
+      # Targets to build and schemes
+      targets:
+        ${targetName}: [build, run, profile]
+        ${unitTestTargetName}: [test]
+    test:
+      config: ${configName}
+      gatherCoverageData: true
+      targets:
+        - name: ${unitTestTargetName}
+          parallelizable: true
+          randomExecutionOrder: true
+
+    # Set Scheme & Configuration to use.
+  TemplateUITestsScheme:
+    templates:
+      - TemplateConfigScheme
+    build:
+      config: ${configName}
+      # Targets to build and schemes
+      targets:
+        ${targetName}: [build, run, profile]
+        ${uiTestTargetName}: [test]
+    test:
+      config: ${configName}
+      gatherCoverageData: true
+      targets:
+        - name: ${uiTestTargetName}
+          parallelizable: true
+          randomExecutionOrder: true
+
+  # Set Scheme & Configuration to use.    
+  TemplateNoTestScheme:
+    templates:
+      - TemplateConfigScheme
+    build:
+      config: Release
+      # Targets to build and schemes
+      targets:
+        ${targetName}: [build, run, profile, analyze, archive]
+
+  # Set Scheme & Configuration to use.
+  TemplateConfigScheme:
+    analyze:
+      config: ${configName}
+    archive:
+      config: ${configName}
+    build:
+      config: ${configName}
+    profile:
+      config: ${configName}
+    run:
+      config: ${configName}
+    test:
+      config: ${configName}

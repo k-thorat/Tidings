@@ -1,0 +1,18 @@
+
+debug_path: &debug_path ../Tidings/XCConfigs/TidingsDebug.xcconfig
+release_path: &release_path ../Tidings/XCConfigs/Tidings.xcconfig
+
+################################################################################
+################################################################################
+
+# Defines configuration for Project
+# https://github.com/yonaskolb/XcodeGen/blob/master/Docs/ProjectSpec.md#configs
+configs:
+  Debug: Debug
+  Release: Release
+    
+# Sets configuration on Project
+# https://github.com/yonaskolb/XcodeGen/blob/master/Docs/ProjectSpec.md#config-files
+configFiles:
+    Debug: *debug_path
+    Release: *release_path

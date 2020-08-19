@@ -1,0 +1,31 @@
+
+# https://github.com/yonaskolb/XcodeGen/blob/master/Docs/ProjectSpec.md
+
+################################################################################
+# Project
+################################################################################
+# Name of the project
+name: Tidings
+
+# https://github.com/yonaskolb/XcodeGen/blob/master/Docs/ProjectSpec.md#options
+options:
+  createIntermediateGroups: true
+  defaultConfig: Release
+  deploymentTarget:
+    iOS: "14.0"
+  generateEmptyDirectories: true
+  groupSortPosition: top
+  groupOrdering:
+    - order: [Tidings, TidingsTests, TidingsUITests]
+  indentWidth: 4
+  minimumXcodeGenVersion: 2.17
+  tabWidth: 4
+  usesTabs: true
+  xcodeVersion: "1160"
+
+# https://github.com/yonaskolb/XcodeGen/blob/master/Docs/ProjectSpec.md#project
+fileGroups:
+  - Tidings/XCConfigs
+  - TidingsTests/XCConfigs
+  - TidingsUITests/XCConfigs
+  - README.md

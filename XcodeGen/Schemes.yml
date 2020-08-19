@@ -1,0 +1,50 @@
+
+main_target: &main_target Tidings
+unit_test_target: &unit_test_target TidingsTests
+ui_test_target: &ui_test_target TidingsUITests
+
+################################################################################
+# Schemes 
+################################################################################
+
+schemes:
+  # Scheme name
+  Debug:
+    # Template name. Stored in Templates.yml
+    templates:
+      - TemplateAllTestsScheme
+    # Template Variables.
+    templateAttributes:
+      configName: Debug
+      targetName: *main_target
+      unitTestTargetName: *unit_test_target
+      uiTestTargetName: *ui_test_target
+
+  # Scheme name
+  Tests:
+    # Template name. Stored in Templates.yml
+    templates:
+      - TemplateUnitTestsScheme
+    # Template Variables.
+    templateAttributes:
+      configName: Debug
+      targetName: *main_target
+      unitTestTargetName: *unit_test_target
+
+  # Scheme name
+  UITests:
+    # Template name. Stored in Templates.yml
+    templates:
+      - TemplateUITestsScheme
+    # Template Variables.
+    templateAttributes:
+      configName: Debug
+      targetName: *main_target
+      uiTestTargetName: *ui_test_target
+
+  Release:
+    templates:
+      - TemplateNoTestScheme
+    templateAttributes:
+      configName: Release
+      targetName: *main_target

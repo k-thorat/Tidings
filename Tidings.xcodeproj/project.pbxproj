@@ -1,0 +1,686 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		08E1966CCED6A8D5385A5CE3 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856E67D6379D8003EC7ED3E1 /* API.swift */; };
+		0B726D9E27DB288DE6A97B8A /* AsyncOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AE4F32806B43D60E8834CC /* AsyncOperationTests.swift */; };
+		11D02D08D8556D5815F0B938 /* URLResponseExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60885373CE8F6837ADA862C2 /* URLResponseExtensionsTests.swift */; };
+		16EF39B260CADAAE8D53908E /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900CE3E74235DB2F1C12C472 /* Service.swift */; };
+		16F0C4B300B91823914AE928 /* DictionaryExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B288B5B8F17365EC05CAF14 /* DictionaryExtensionsTests.swift */; };
+		21200644253D49FADC6DE175 /* CollectionExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5D11AA10D4CEA81E84419E /* CollectionExtensionsTests.swift */; };
+		2AB15A7C6699225B8F88A1B1 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01897E1F37812EC9047D00AA /* Localizable.swift */; };
+		41E32B8FCAEC15016BC968BD /* ServiceOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4431AA9F63F73EC4F328E2 /* ServiceOperation.swift */; };
+		491A15DC1AF3B0C92C864845 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D46D1088CB78003B16EA1C /* UIViewController+Alert.swift */; };
+		502E4B77A30AE2EFDAA0FA41 /* Tidings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2454508351AF98345AC0BFFA /* Tidings.swift */; };
+		68485E2F8BC2A55D88EE4E1C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4AC1712073E6297D530F4D91 /* Localizable.strings */; };
+		733462F3C7715E5E1D90AA04 /* BundleExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F198885B6EA0413DDB113E65 /* BundleExtensionsTests.swift */; };
+		79FE9B2973E888ABB17F29F9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E24478F0DCB240D43CC4175 /* ContentView.swift */; };
+		7AE8E5DA3390ABBA4003F781 /* Collection+Subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83A900DC2BCC8D0FD8DD55C /* Collection+Subscript.swift */; };
+		83FA9923C5C72DDB0A9CAA1B /* TidingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D01A9C2B8B311040D5B60E7 /* TidingsTests.swift */; };
+		8AB553558C3C1D2756B41B4C /* ArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE853BE7A734D9582BE89792 /* ArticleView.swift */; };
+		960B2063D61CB72AC29BAD1A /* URLResponseExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CC9339CF73D578A0A4A208 /* URLResponseExtensions.swift */; };
+		9C0BA036D00B65B112AF70DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C65F64654B080B484F65A52 /* Assets.xcassets */; };
+		A90DF4E895C01B29D9EE23A6 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A00D1C40A7A4B843DDABC3 /* NetworkError.swift */; };
+		B10A73D23A8E86572F733EFE /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D74950E62BDBAA44717F27 /* DictionaryExtensions.swift */; };
+		B113F527D2000B93421AB7F0 /* UIAlertActionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2F4E64775250EAB856C7F1 /* UIAlertActionExtensions.swift */; };
+		BDEE808A21DCAEDB207309FD /* TidingsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DDC5BADEA3B52F9598A5D6 /* TidingsApp.swift */; };
+		BF4B299D31E2ECC0FF550197 /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0CBEAE4BDB4043706409AB /* AsyncOperation.swift */; };
+		C1937DE972B9AA8C77F7F21B /* SourcesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC71329615012985101437F9 /* SourcesView.swift */; };
+		C9AE1FEC9E137432A0EF5FE8 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A595702E4C950F6C78AE36 /* Localized.swift */; };
+		D01B97CE2326F761689CB3CF /* RequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D63112BCBAD7560BDBE568F /* RequestType.swift */; };
+		D096FCFC774060A0399895EE /* TidingsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CABBD9E2D7A2C611F57E79C /* TidingsUITests.swift */; };
+		D25D545FF01EA6B98F83548D /* BundleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900D1F9441D42F22C4BA8992 /* BundleExtensions.swift */; };
+		DC57E4D0F0AE3EF13D3C2D08 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DE43F957BCF16F4AB14074 /* Reachability.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		419BF8B37F2A3198898E9CE6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 49482E6DE84F7207829E5FFE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8FA43CD20B8BE322FC1C74B9;
+			remoteInfo = Tidings;
+		};
+		D5A1A57BD7B50BABF2568959 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 49482E6DE84F7207829E5FFE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8FA43CD20B8BE322FC1C74B9;
+			remoteInfo = Tidings;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		01897E1F37812EC9047D00AA /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
+		06D46D1088CB78003B16EA1C /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
+		07AE4F32806B43D60E8834CC /* AsyncOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOperationTests.swift; sourceTree = "<group>"; };
+		132AC9DAC6AAAAB4F7C125FB /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		1B288B5B8F17365EC05CAF14 /* DictionaryExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExtensionsTests.swift; sourceTree = "<group>"; };
+		1B69C9F3ACEE4A166CFBEA31 /* TidingsUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = TidingsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CF20FE7A1A39A8147DE01CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		2454508351AF98345AC0BFFA /* Tidings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tidings.swift; sourceTree = "<group>"; };
+		2574E621B88AFFBA2B623495 /* Warnings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Warnings.xcconfig; sourceTree = "<group>"; };
+		31DDC5BADEA3B52F9598A5D6 /* TidingsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TidingsApp.swift; sourceTree = "<group>"; };
+		34D74950E62BDBAA44717F27 /* DictionaryExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExtensions.swift; sourceTree = "<group>"; };
+		46D99C7413608CCD81CC4A2D /* TidingsUITests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = TidingsUITests.xcconfig; sourceTree = "<group>"; };
+		4D63112BCBAD7560BDBE568F /* RequestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestType.swift; sourceTree = "<group>"; };
+		4E24478F0DCB240D43CC4175 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5C55AC3CEDFBEF383EE9309B /* Tidings.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tidings.entitlements; sourceTree = "<group>"; };
+		60885373CE8F6837ADA862C2 /* URLResponseExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLResponseExtensionsTests.swift; sourceTree = "<group>"; };
+		63DE43F957BCF16F4AB14074 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		649A35054E090D3C2CAAF120 /* TidingsDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = TidingsDebug.xcconfig; sourceTree = "<group>"; };
+		6735A99825B93E74DAEEFDC0 /* Test.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Test.entitlements; sourceTree = "<group>"; };
+		6C2F4E64775250EAB856C7F1 /* UIAlertActionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertActionExtensions.swift; sourceTree = "<group>"; };
+		6D01A9C2B8B311040D5B60E7 /* TidingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TidingsTests.swift; sourceTree = "<group>"; };
+		74A00D1C40A7A4B843DDABC3 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		7CABBD9E2D7A2C611F57E79C /* TidingsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TidingsUITests.swift; sourceTree = "<group>"; };
+		7F0CBEAE4BDB4043706409AB /* AsyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
+		82A0FBBF3BBC0C5221F83A34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		856E67D6379D8003EC7ED3E1 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		8E31951715827EDAC51125B1 /* TidingsUITestsDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = TidingsUITestsDebug.xcconfig; sourceTree = "<group>"; };
+		8E5D11AA10D4CEA81E84419E /* CollectionExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExtensionsTests.swift; sourceTree = "<group>"; };
+		900CE3E74235DB2F1C12C472 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		900D1F9441D42F22C4BA8992 /* BundleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleExtensions.swift; sourceTree = "<group>"; };
+		97E13B3DC5BF261CB67A25B4 /* Tidings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tidings.xcconfig; sourceTree = "<group>"; };
+		9C65F64654B080B484F65A52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A83A900DC2BCC8D0FD8DD55C /* Collection+Subscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Subscript.swift"; sourceTree = "<group>"; };
+		AC71329615012985101437F9 /* SourcesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcesView.swift; sourceTree = "<group>"; };
+		AE74CCA7AE9CDC64011DFC03 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		AE853BE7A734D9582BE89792 /* ArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleView.swift; sourceTree = "<group>"; };
+		B2B9F0CD4C7E44AAA7DC3DE2 /* AppStore.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AppStore.xcconfig; sourceTree = "<group>"; };
+		B5A595702E4C950F6C78AE36 /* Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
+		B656C7C5D76B62DF59CF7881 /* Tidings.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Tidings.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8887F79D3DB737D88627F9A /* Test.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Test.xcconfig; sourceTree = "<group>"; };
+		CF27C6B5156A51F96DE81E3A /* TidingsTests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = TidingsTests.xcconfig; sourceTree = "<group>"; };
+		D420822E866C37ED72CB592F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D5496B83885175549D8DFF33 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D7AF12262F9577A7ECE4AF70 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		DA4431AA9F63F73EC4F328E2 /* ServiceOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceOperation.swift; sourceTree = "<group>"; };
+		DD0BD4AF916361FDB20FCEF8 /* TidingsTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = TidingsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2100914351BAFD8A8D31BD9 /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
+		F198885B6EA0413DDB113E65 /* BundleExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleExtensionsTests.swift; sourceTree = "<group>"; };
+		F5CC9339CF73D578A0A4A208 /* URLResponseExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLResponseExtensions.swift; sourceTree = "<group>"; };
+		F9293C371862AF40EAB8CC71 /* TidingsTestsDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = TidingsTestsDebug.xcconfig; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		0B3CED38C39FC19162911E38 /* TidingsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B54D20257500A35FC9E0A186 /* App */,
+				5E752750DDE9A67F8C14DD2F /* XCConfigs */,
+				7CABBD9E2D7A2C611F57E79C /* TidingsUITests.swift */,
+			);
+			path = TidingsUITests;
+			sourceTree = "<group>";
+		};
+		17883F8F7760630F8F1DF711 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9237B006E234102292F0EFDC /* Extensions */,
+				674B541E706F5BF78CAB92C5 /* Local */,
+				EB4998FC4D1ADC3A4294CBFF /* Network */,
+				61C1A73ACC58837D20C9FA68 /* Operation */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		1C3E7E360D61FA8ABF87162D /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				4E24478F0DCB240D43CC4175 /* ContentView.swift */,
+			);
+			path = Content;
+			sourceTree = "<group>";
+		};
+		1F174EC800775CB862F3936B = {
+			isa = PBXGroup;
+			children = (
+				9C50B89062CDAD3991D878AD /* Tidings */,
+				EC5DAE5840E407838BAE1126 /* TidingsTests */,
+				0B3CED38C39FC19162911E38 /* TidingsUITests */,
+				AE74CCA7AE9CDC64011DFC03 /* README.md */,
+				B811B973E8EEAACC3A6E1261 /* Products */,
+			);
+			indentWidth = 4;
+			sourceTree = "<group>";
+			tabWidth = 4;
+			usesTabs = 1;
+		};
+		23AB5901F25A27272F28B40C /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				82A0FBBF3BBC0C5221F83A34 /* Info.plist */,
+				6735A99825B93E74DAEEFDC0 /* Test.entitlements */,
+				5C55AC3CEDFBEF383EE9309B /* Tidings.entitlements */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		2B8A77D4187E6E3E8F443A60 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				D420822E866C37ED72CB592F /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		33F77C7E96BC06807009DA5E /* Articles */ = {
+			isa = PBXGroup;
+			children = (
+				AE853BE7A734D9582BE89792 /* ArticleView.swift */,
+			);
+			path = Articles;
+			sourceTree = "<group>";
+		};
+		3DDCEB457B97EA457B573973 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				4AC1712073E6297D530F4D91 /* Localizable.strings */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		4A10878F0618EB9ACCEB7406 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3DDCEB457B97EA457B573973 /* Local */,
+				9C65F64654B080B484F65A52 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		51759ACB54C2A7054E3F5749 /* Operation */ = {
+			isa = PBXGroup;
+			children = (
+				07AE4F32806B43D60E8834CC /* AsyncOperationTests.swift */,
+			);
+			path = Operation;
+			sourceTree = "<group>";
+		};
+		5E752750DDE9A67F8C14DD2F /* XCConfigs */ = {
+			isa = PBXGroup;
+			children = (
+				46D99C7413608CCD81CC4A2D /* TidingsUITests.xcconfig */,
+				8E31951715827EDAC51125B1 /* TidingsUITestsDebug.xcconfig */,
+			);
+			path = XCConfigs;
+			sourceTree = "<group>";
+		};
+		6121FE30C7583B2798D2702D /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				856E67D6379D8003EC7ED3E1 /* API.swift */,
+				2454508351AF98345AC0BFFA /* Tidings.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		61C1A73ACC58837D20C9FA68 /* Operation */ = {
+			isa = PBXGroup;
+			children = (
+				7F0CBEAE4BDB4043706409AB /* AsyncOperation.swift */,
+			);
+			path = Operation;
+			sourceTree = "<group>";
+		};
+		674B541E706F5BF78CAB92C5 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				01897E1F37812EC9047D00AA /* Localizable.swift */,
+				B5A595702E4C950F6C78AE36 /* Localized.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		6AF09937127472FF35CB0553 /* XCConfigs */ = {
+			isa = PBXGroup;
+			children = (
+				CF27C6B5156A51F96DE81E3A /* TidingsTests.xcconfig */,
+				F9293C371862AF40EAB8CC71 /* TidingsTestsDebug.xcconfig */,
+			);
+			path = XCConfigs;
+			sourceTree = "<group>";
+		};
+		70989025E6B03855779E3302 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F198885B6EA0413DDB113E65 /* BundleExtensionsTests.swift */,
+				8E5D11AA10D4CEA81E84419E /* CollectionExtensionsTests.swift */,
+				1B288B5B8F17365EC05CAF14 /* DictionaryExtensionsTests.swift */,
+				60885373CE8F6837ADA862C2 /* URLResponseExtensionsTests.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8D69A70B7A1442F5EA137EC3 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				33F77C7E96BC06807009DA5E /* Articles */,
+				1C3E7E360D61FA8ABF87162D /* Content */,
+				D16FF38A9ED98D659FED5CDC /* Sources */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		8F161B2144225B2F551BA2C6 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				23AB5901F25A27272F28B40C /* Config */,
+				31DDC5BADEA3B52F9598A5D6 /* TidingsApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		9237B006E234102292F0EFDC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				900D1F9441D42F22C4BA8992 /* BundleExtensions.swift */,
+				A83A900DC2BCC8D0FD8DD55C /* Collection+Subscript.swift */,
+				34D74950E62BDBAA44717F27 /* DictionaryExtensions.swift */,
+				6C2F4E64775250EAB856C7F1 /* UIAlertActionExtensions.swift */,
+				06D46D1088CB78003B16EA1C /* UIViewController+Alert.swift */,
+				F5CC9339CF73D578A0A4A208 /* URLResponseExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9C50B89062CDAD3991D878AD /* Tidings */ = {
+			isa = PBXGroup;
+			children = (
+				8F161B2144225B2F551BA2C6 /* App */,
+				6121FE30C7583B2798D2702D /* Constants */,
+				17883F8F7760630F8F1DF711 /* Helpers */,
+				8D69A70B7A1442F5EA137EC3 /* Modules */,
+				4A10878F0618EB9ACCEB7406 /* Resources */,
+				E166FB4233F88934607506C7 /* XCConfigs */,
+			);
+			path = Tidings;
+			sourceTree = "<group>";
+		};
+		A191C51D514F4C5848FEEEF8 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				70989025E6B03855779E3302 /* Extensions */,
+				51759ACB54C2A7054E3F5749 /* Operation */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		B017F67E3034E41B7BC3FF7F /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				B2B9F0CD4C7E44AAA7DC3DE2 /* AppStore.xcconfig */,
+				132AC9DAC6AAAAB4F7C125FB /* Debug.xcconfig */,
+				E2100914351BAFD8A8D31BD9 /* Development.xcconfig */,
+				D7AF12262F9577A7ECE4AF70 /* Release.xcconfig */,
+				C8887F79D3DB737D88627F9A /* Test.xcconfig */,
+				2574E621B88AFFBA2B623495 /* Warnings.xcconfig */,
+			);
+			path = Types;
+			sourceTree = "<group>";
+		};
+		B54D20257500A35FC9E0A186 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				1CF20FE7A1A39A8147DE01CC /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		B811B973E8EEAACC3A6E1261 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B656C7C5D76B62DF59CF7881 /* Tidings.app */,
+				DD0BD4AF916361FDB20FCEF8 /* TidingsTests.xctest */,
+				1B69C9F3ACEE4A166CFBEA31 /* TidingsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D16FF38A9ED98D659FED5CDC /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				AC71329615012985101437F9 /* SourcesView.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		E166FB4233F88934607506C7 /* XCConfigs */ = {
+			isa = PBXGroup;
+			children = (
+				B017F67E3034E41B7BC3FF7F /* Types */,
+				97E13B3DC5BF261CB67A25B4 /* Tidings.xcconfig */,
+				649A35054E090D3C2CAAF120 /* TidingsDebug.xcconfig */,
+			);
+			path = XCConfigs;
+			sourceTree = "<group>";
+		};
+		EB4998FC4D1ADC3A4294CBFF /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				74A00D1C40A7A4B843DDABC3 /* NetworkError.swift */,
+				63DE43F957BCF16F4AB14074 /* Reachability.swift */,
+				4D63112BCBAD7560BDBE568F /* RequestType.swift */,
+				900CE3E74235DB2F1C12C472 /* Service.swift */,
+				DA4431AA9F63F73EC4F328E2 /* ServiceOperation.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		EC5DAE5840E407838BAE1126 /* TidingsTests */ = {
+			isa = PBXGroup;
+			children = (
+				2B8A77D4187E6E3E8F443A60 /* App */,
+				A191C51D514F4C5848FEEEF8 /* Helpers */,
+				6AF09937127472FF35CB0553 /* XCConfigs */,
+				6D01A9C2B8B311040D5B60E7 /* TidingsTests.swift */,
+			);
+			path = TidingsTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8FA43CD20B8BE322FC1C74B9 /* Tidings */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAAFB60DB5F6DD3F7FDB8EDB /* Build configuration list for PBXNativeTarget "Tidings" */;
+			buildPhases = (
+				EC917AFA54620283137A4250 /* SwiftLint */,
+				44EB48BF32CEAC5A093C19E0 /* Sources */,
+				4FA562C05BE84C16935BBDC8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Tidings;
+			productName = Tidings;
+			productReference = B656C7C5D76B62DF59CF7881 /* Tidings.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A7B5A29A63C206C2374DC3D0 /* TidingsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D63AE8215D7DE16E936DE44B /* Build configuration list for PBXNativeTarget "TidingsUITests" */;
+			buildPhases = (
+				03480ED403F9F8EFB820F3EE /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F8DF6B048E821B7DDA4CA8CA /* PBXTargetDependency */,
+			);
+			name = TidingsUITests;
+			productName = TidingsUITests;
+			productReference = 1B69C9F3ACEE4A166CFBEA31 /* TidingsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		BC76526968A48EF344E173E1 /* TidingsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E6FDC76F71AAF65BFC834842 /* Build configuration list for PBXNativeTarget "TidingsTests" */;
+			buildPhases = (
+				FC5F113B7F8AD5D818F080C3 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A50BFFCC9D98373A394A114A /* PBXTargetDependency */,
+			);
+			name = TidingsTests;
+			productName = TidingsTests;
+			productReference = DD0BD4AF916361FDB20FCEF8 /* TidingsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		49482E6DE84F7207829E5FFE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1160;
+				TargetAttributes = {
+					8FA43CD20B8BE322FC1C74B9 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Manual;
+					};
+					A7B5A29A63C206C2374DC3D0 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Manual;
+					};
+					BC76526968A48EF344E173E1 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Manual;
+					};
+				};
+			};
+			buildConfigurationList = 655AFEF86AED95B9116DB82F /* Build configuration list for PBXProject "Tidings" */;
+			compatibilityVersion = "Xcode 10.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1F174EC800775CB862F3936B;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8FA43CD20B8BE322FC1C74B9 /* Tidings */,
+				BC76526968A48EF344E173E1 /* TidingsTests */,
+				A7B5A29A63C206C2374DC3D0 /* TidingsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4FA562C05BE84C16935BBDC8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C0BA036D00B65B112AF70DA /* Assets.xcassets in Resources */,
+				68485E2F8BC2A55D88EE4E1C /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		EC917AFA54620283137A4250 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "sh Scripts/SwiftLint.sh";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		03480ED403F9F8EFB820F3EE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D096FCFC774060A0399895EE /* TidingsUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		44EB48BF32CEAC5A093C19E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08E1966CCED6A8D5385A5CE3 /* API.swift in Sources */,
+				8AB553558C3C1D2756B41B4C /* ArticleView.swift in Sources */,
+				BF4B299D31E2ECC0FF550197 /* AsyncOperation.swift in Sources */,
+				D25D545FF01EA6B98F83548D /* BundleExtensions.swift in Sources */,
+				7AE8E5DA3390ABBA4003F781 /* Collection+Subscript.swift in Sources */,
+				79FE9B2973E888ABB17F29F9 /* ContentView.swift in Sources */,
+				B10A73D23A8E86572F733EFE /* DictionaryExtensions.swift in Sources */,
+				2AB15A7C6699225B8F88A1B1 /* Localizable.swift in Sources */,
+				C9AE1FEC9E137432A0EF5FE8 /* Localized.swift in Sources */,
+				A90DF4E895C01B29D9EE23A6 /* NetworkError.swift in Sources */,
+				DC57E4D0F0AE3EF13D3C2D08 /* Reachability.swift in Sources */,
+				D01B97CE2326F761689CB3CF /* RequestType.swift in Sources */,
+				16EF39B260CADAAE8D53908E /* Service.swift in Sources */,
+				41E32B8FCAEC15016BC968BD /* ServiceOperation.swift in Sources */,
+				C1937DE972B9AA8C77F7F21B /* SourcesView.swift in Sources */,
+				502E4B77A30AE2EFDAA0FA41 /* Tidings.swift in Sources */,
+				BDEE808A21DCAEDB207309FD /* TidingsApp.swift in Sources */,
+				B113F527D2000B93421AB7F0 /* UIAlertActionExtensions.swift in Sources */,
+				491A15DC1AF3B0C92C864845 /* UIViewController+Alert.swift in Sources */,
+				960B2063D61CB72AC29BAD1A /* URLResponseExtensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC5F113B7F8AD5D818F080C3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B726D9E27DB288DE6A97B8A /* AsyncOperationTests.swift in Sources */,
+				733462F3C7715E5E1D90AA04 /* BundleExtensionsTests.swift in Sources */,
+				21200644253D49FADC6DE175 /* CollectionExtensionsTests.swift in Sources */,
+				16F0C4B300B91823914AE928 /* DictionaryExtensionsTests.swift in Sources */,
+				83FA9923C5C72DDB0A9CAA1B /* TidingsTests.swift in Sources */,
+				11D02D08D8556D5815F0B938 /* URLResponseExtensionsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A50BFFCC9D98373A394A114A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8FA43CD20B8BE322FC1C74B9 /* Tidings */;
+			targetProxy = D5A1A57BD7B50BABF2568959 /* PBXContainerItemProxy */;
+		};
+		F8DF6B048E821B7DDA4CA8CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8FA43CD20B8BE322FC1C74B9 /* Tidings */;
+			targetProxy = 419BF8B37F2A3198898E9CE6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4AC1712073E6297D530F4D91 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D5496B83885175549D8DFF33 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1D422680FC832A32E720850A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF27C6B5156A51F96DE81E3A /* TidingsTests.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		1F7A8EE40472193469360CA8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 649A35054E090D3C2CAAF120 /* TidingsDebug.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		2370ACAB37BDBC539759F7E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 97E13B3DC5BF261CB67A25B4 /* Tidings.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		51865C6424D2424C564DEF1B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E31951715827EDAC51125B1 /* TidingsUITestsDebug.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		A0A0143270734E9C2684938C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46D99C7413608CCD81CC4A2D /* TidingsUITests.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		A59B075C2B182639F5037A8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9293C371862AF40EAB8CC71 /* TidingsTestsDebug.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		E1A225E0B52447FF888DEA10 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 649A35054E090D3C2CAAF120 /* TidingsDebug.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		E2421F4F7AE30B4A219AFE5D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 97E13B3DC5BF261CB67A25B4 /* Tidings.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		655AFEF86AED95B9116DB82F /* Build configuration list for PBXProject "Tidings" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1A225E0B52447FF888DEA10 /* Debug */,
+				E2421F4F7AE30B4A219AFE5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D63AE8215D7DE16E936DE44B /* Build configuration list for PBXNativeTarget "TidingsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				51865C6424D2424C564DEF1B /* Debug */,
+				A0A0143270734E9C2684938C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E6FDC76F71AAF65BFC834842 /* Build configuration list for PBXNativeTarget "TidingsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A59B075C2B182639F5037A8A /* Debug */,
+				1D422680FC832A32E720850A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAAFB60DB5F6DD3F7FDB8EDB /* Build configuration list for PBXNativeTarget "Tidings" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F7A8EE40472193469360CA8 /* Debug */,
+				2370ACAB37BDBC539759F7E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 49482E6DE84F7207829E5FFE /* Project object */;
+}

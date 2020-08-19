@@ -1,0 +1,47 @@
+
+
+################################################################################
+# Target Template
+# https://github.com/yonaskolb/XcodeGen/blob/master/Docs/ProjectSpec.md#target-template
+################################################################################
+
+targetTemplates:
+  TemplateTarget:
+    type: application
+
+    settings:
+      INFOPLIST_FILE: ${target_name}/App/Config/Info.plist
+    
+    # Source directories 
+    sources:
+      - ../../${target_name}
+    
+    # XCconfig files 
+    configFiles:
+      Debug: ../../${target_name}/XCConfigs/${target_name}Debug.xcconfig
+      Release: ../../${target_name}/XCConfigs/${target_name}.xcconfig
+    
+    # Target build scripts
+    preBuildScripts:
+      - script: sh Scripts/SwiftLint.sh
+        name: SwiftLint
+
+  TemplateUnitTest:
+    type: bundle.unit-test
+    dependencies:
+      - target: ${mainTarget}
+    sources:
+      - ../../${target_name}
+    configFiles:
+      Debug: ../../${target_name}/XCConfigs/${target_name}Debug.xcconfig
+      Release: ../../${target_name}/XCConfigs/${target_name}.xcconfig
+
+  TemplateUITest:
+    type: bundle.ui-testing
+    dependencies:
+      - target: ${mainTarget}
+    sources:
+      - ../../${target_name}
+    configFiles:
+      Debug: ../../${target_name}/XCConfigs/${target_name}Debug.xcconfig
+      Release: ../../${target_name}/XCConfigs/${target_name}.xcconfig

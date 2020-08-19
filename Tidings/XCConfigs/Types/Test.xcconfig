@@ -1,0 +1,12 @@
+//
+// Created by Kiran Thorat.
+// Copyright © 2020 Kiran Thorat. All rights reserved.
+//
+
+CODE_SIGN_ENTITLEMENTS = Tidings/App/Config/Test.entitlements
+PRODUCT_BUNDLE_IDENTIFIER = ${PRODUCT_BUNDLE_IDENTIFIER}.${PRODUCT_NAME:rfc1034identifier}
+LD_RUNPATH_SEARCH_PATHS = $(inherited) @executable_path/Frameworks @loader_path/Frameworks 
+PROVISIONING_PROFILE_SPECIFIER[sdk=*] =
+PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*] =
+WRAPPER_EXTENSION = xctest
+

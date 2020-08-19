@@ -1,0 +1,14 @@
+//
+// Created by Kiran Thorat.
+// Copyright © 2020 Kiran Thorat. All rights reserved.
+//
+
+#include "../../Tidings/XCConfigs/Types/Test.xcconfig"
+#include "../../Tidings/XCConfigs/Types/Development.xcconfig"
+
+INFOPLIST_FILE = TidingsUITests/App/Info.plist
+TEST_TARGET_NAME = Tidings
+BUNDLE_LOADER = $(BUILT_PRODUCTS_DIR)/Tidings.app/Tidings
+PRODUCT_BUNDLE_IDENTIFIER = com.example.tidings.test.ui
+PROVISIONING_PROFILE_SPECIFIER[sdk=*] = match Development com.example.tidings.test.ui.xctrunner
+//PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*] = match Development com.example.tidings.test.ui.xctrunner catalyst

@@ -1,0 +1,8 @@
+//
+// Created by Kiran Thorat.
+// Copyright © 2020 Kiran Thorat. All rights reserved.
+//
+
+#include "TidingsUITests.xcconfig"
+#include "../../Tidings/XCConfigs/Types/Debug.xcconfig"
+

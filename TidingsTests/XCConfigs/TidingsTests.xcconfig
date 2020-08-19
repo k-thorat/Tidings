@@ -1,0 +1,10 @@
+//
+// Created by Kiran Thorat.
+// Copyright © 2020 Kiran Thorat. All rights reserved.
+//
+
+#include "../../Tidings/XCConfigs/Types/Test.xcconfig"
+
+BUNDLE_LOADER = $(BUILT_PRODUCTS_DIR)/Tidings.app/Tidings
+INFOPLIST_FILE = TidingsTests/App/Info.plist
+TEST_HOST = $(BUNDLE_LOADER)

@@ -1,0 +1,8 @@
+//
+// Created by Kiran Thorat.
+// Copyright © 2020 Kiran Thorat. All rights reserved.
+//
+
+CODE_SIGN_IDENTITY = Apple Distribution
+PROVISIONING_PROFILE_SPECIFIER = match AppStore $(PRODUCT_BUNDLE_IDENTIFIER)
+//PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*] = match AppStore $(PRODUCT_BUNDLE_IDENTIFIER) catalyst

@@ -1,0 +1,31 @@
+
+main_target: &main_target Tidings
+unit_test_target: &unit_test_target TidingsTests
+ui_test_target: &ui_test_target TidingsUITests
+
+################################################################################
+          # Targets
+################################################################################
+
+targets:
+  # Target name
+  *main_target:
+    # Template name. Stored in Templates.yml
+    templates: 
+      - TemplateTarget
+    # Supported platform.
+    platform: iOS
+
+  *unit_test_target:
+    templates: 
+      - TemplateUnitTest
+    templateAttributes:
+      mainTarget: *main_target
+    platform: iOS
+
+  *ui_test_target:
+    templates: 
+      - TemplateUITest
+    templateAttributes:
+      mainTarget: *main_target
+    platform: iOS

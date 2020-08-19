@@ -1,0 +1,11 @@
+
+# https://github.com/yonaskolb/XcodeGen/blob/master/Docs/ProjectSpec.md
+
+include:
+  - path: XcodeGen/Tidings.yml
+  - path: XcodeGen/BuildSettings.yml
+  - path: XcodeGen/Configs.yml
+  - path: XcodeGen/Schemes.yml
+  - path: XcodeGen/Targets.yml
+  - path: XcodeGen/Templates/SchemeTemplates.yml
+  - path: XcodeGen/Templates/TargetTemplates.yml
