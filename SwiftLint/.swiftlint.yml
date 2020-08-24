@@ -4,13 +4,16 @@ disabled_rules:
   - explicit_top_level_acl # Feels unneeded specially, everything is Internal by default.
   - explicit_type_interface # Could be useful in some cases but it's not always required. 
   - file_types_order # Doesn't work with view_previews
+  - indentation_width
+  - nesting
   - no_grouping_extension # Want to use extensions to separate functionality
+  - no_extension_access_modifier # Making private extensions
   - multiline_arguments_brackets
   - nslocalizedstring_key
   - nslocalizedstring_require_bundle
   - required_deinit # Could be handy for testing, but not required.
   - superfluous_disable_command # Doesn't recognize custom rules
-  - indentation_width
+  - type_name # Want to use file names with k
   - vertical_parameter_alignment_on_call # Broken in 0.40. Enable when fixed.
 
 opt_in_rules:
@@ -108,9 +111,7 @@ opt_in_rules:
   - multiline_parameters
   - multiple_closures_with_trailing_closure
   - nsobject_prefer_isequal
-  - nesting
   - nimble_operator
-  - no_extension_access_modifier
   - no_fallthrough_only
   - no_space_in_method_call
   - notification_center_detachment
@@ -170,7 +171,6 @@ opt_in_rules:
   - trailing_whitespace
   - type_body_length
   - type_contents_order
-  - type_name
   - unavailable_function
   - unneeded_break_in_switch
   - unneeded_notification_center_removal
@@ -197,6 +197,9 @@ opt_in_rules:
   - xct_specific_matcher
   - yoda_condition
 
+cyclomatic_complexity:
+  ignores_case_statements: true
+  
 file_header:
   required_pattern: |
                     \/\/
@@ -205,6 +208,10 @@ file_header:
                     \/\/
 file_name:
   suffix_pattern: "Extensions?|\\+.*"
+
+identifier_name:
+  excluded:
+    - id
 
 custom_rules:
   rule_dnc:
@@ -245,9 +252,9 @@ custom_rules:
     regex: "== false"
     message: "Don't compare to false, just use !value."
 
-  commented_code:
-    regex: '(?<!:|\/)\/\/\h*[a-z.](?!wiftlint)'
-    message: "Comment starting with lowercase letter - did you forget to delete old code?"
+  # commented_code:
+  #   regex: '(?<!:|\/)\/\/\h*[a-z.](?!wiftlint)'
+  #   message: "Comment starting with lowercase letter - did you forget to delete old code?"
 
   multiline_commented_code:
     regex: '^\s*[a-z]'

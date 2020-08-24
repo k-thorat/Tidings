@@ -3,40 +3,36 @@
 // Copyright © 2020 Kiran Thorat. All rights reserved.
 //
 
+import Combine
 import Foundation
 
-struct Service {
+struct Service: ServiceType {
+	let session: URLSession
+	let decoder: JSONDecoder
+
+	init(session: URLSession = .shared, decoder: JSONDecoder = JSONDecoder()) {
+		self.session = session
+		self.decoder = decoder
+	}
+
 	func request<T: Decodable>(
-		_ request: RequestType,
-		session: URLSession = URLSession.shared,
-		decoder: JSONDecoder = JSONDecoder(),
-		completion: @escaping (_ response: Result<T, Error>) -> Void
-	) -> URLSessionDataTask? {
+		_ request: RequestType
+	) throws -> AnyPublisher<T, NetworkError> {
 		guard Reachability.status() != .notReachable else {
-			completion(.failure(NetworkError.notConnected))
-			return nil
+			throw NetworkError.notConnected
 		}
 
-		let task =
+		return
 			session
-			.dataTask(with: request.urlRequest()) { data, response, error in
-				if let error = error {
-					completion(.failure(error))
-					return
+			.dataTaskPublisher(for: try request.urlRequest())
+			.tryMap { element -> Data in
+				guard element.response.isValid() else {
+					throw NetworkError.invalidStatusCode
 				}
-				guard
-					let data = data,
-					let response = response,
-					response.isStatusValid(),
-					let value = try? decoder.decode(T.self, from: data)
-				else {
-					completion(.failure(NetworkError.invalidResponse))
-					return
-				}
-				completion(.success(value))
+				return element.data
 			}
-
-		task.resume()
-		return task
+			.decode(type: T.self, decoder: decoder)
+			.mapError { NetworkError.map($0) }
+			.eraseToAnyPublisher()
 	}
 }

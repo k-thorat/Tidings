@@ -6,7 +6,7 @@
 import Foundation
 
 extension URLResponse {
-	func isStatusValid() -> Bool {
+	func isValid() -> Bool {
 		guard let response = self as? HTTPURLResponse else {
 			return false
 		}

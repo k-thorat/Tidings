@@ -5,7 +5,14 @@
 
 "okay" = "Okay";
 
-"genericError" = "Oops! Unable to get data this time we are. Please try agin. Yes, hrrmmm.";
+"error_generic" = "Oops! Unable to get data this time we are. Please try agin. Yes, hrrmmm.";
 
-"module.articles" = "Articles";
-"module.sources" = "Sources";
+"loading_title" = "Loading...";
+
+"module_articles" = "Articles";
+"module_sources" = "Sources";
+
+"error_network_generic" = "Request Failed";
+"error_network_invalid_request" = "Invalid Request";
+"error_network_invalid_response" = "Invalid Response";
+"error_network_not_connected" = "Not Connected";

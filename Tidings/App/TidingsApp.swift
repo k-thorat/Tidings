@@ -8,19 +8,14 @@ import SwiftUI
 @main
 struct TidingsApp: App {
     var body: some Scene {
-        WindowGroup {
-			TabView {
-				ArticleView.tab()
-				SourcesView.tab()
-			}
-        }
+		WindowGroup {
+			TidingsApp.tab()
+		}
 	}
-}
 
-struct TidingsApp_Previews: PreviewProvider {
-	static var previews: some View {
+	static func tab() -> some View {
 		TabView {
-			ArticleView.tab()
+			ArticlesView.tab()
 			SourcesView.tab()
 		}
 	}

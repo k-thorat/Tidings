@@ -3,7 +3,7 @@
 // Copyright © 2020 Kiran Thorat. All rights reserved.
 //
 
-@testable import Movies
+@testable import Tidings
 import XCTest
 
 class CollectionExtensionsTests: XCTestCase {

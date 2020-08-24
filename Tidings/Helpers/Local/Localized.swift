@@ -12,13 +12,26 @@ enum Localized {
 	}
 
 	// Alert titles
-	enum Alert: String, Localizable {
-		case genericError
+	enum Error: String, Localizable {
+		case generic = "error_generic"
+
+		// Module strings for Errors
+		enum Network: String, Localizable {
+			case generic = "error_network_generic"
+			case invalidRequest = "error_network_invalid_request"
+			case invalidResponse = "error_network_invalid_response"
+			case notConnected = "error_network_not_connected"
+		}
+	}
+
+	// Loading States
+	enum Loading: String, Localizable {
+		case title = "loading_title"
 	}
 
 	// Module titles for Tab/Nav
 	enum Module: String, Localizable {
-		case articles = "module.articles"
-		case sources = "module.sources"
+		case articles = "module_articles"
+		case sources = "module_sources"
 	}
 }
