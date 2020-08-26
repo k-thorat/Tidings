@@ -5,28 +5,16 @@
 
 import Combine
 
-enum Throwable<T: Decodable>: Decodable {
-	case success(T)
-	case failure(Error)
+struct Throwable<T: Decodable>: Decodable {
+	let result: Result<T, Error>
 
 	init(from decoder: Decoder) throws {
-		do {
-			let decoded = try T(from: decoder)
-			self = .success(decoded)
-		} catch {
-			self = .failure(error)
-		}
+		result = Result { try T(from: decoder) }
 	}
 }
 
 extension Throwable {
 	var value: T? {
-		switch self {
-		case .failure:
-			return nil
-
-		case .success(let value):
-			return value
-		}
+		try? result.get()
 	}
 }

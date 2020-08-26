@@ -4,7 +4,6 @@
 //
 
 import Foundation
-import KingfisherSwiftUI
 import SwiftUI
 
 struct ArticleCellView: View {

@@ -9,6 +9,7 @@ import SwiftUI
 final class ArticlesViewModel: ObservableObject {
 	@Published private(set) var state: ViewState
 	@Published private(set) var articles = SyncedArray<Article>()
+	@Published private(set) var placeholders = SyncedArray<Article>()
 
 	private var page: Page
 	private var subscriptions = Set<AnyCancellable>()
@@ -37,10 +38,6 @@ final class ArticlesViewModel: ObservableObject {
 		input.send(event)
 	}
 
-	func hasMore() -> Bool {
-		page.hasMore()
-	}
-
 	deinit {
 		subscriptions.removeAll()
 	}
@@ -49,6 +46,8 @@ final class ArticlesViewModel: ObservableObject {
 private extension ArticlesViewModel {
 	func whenLoading() -> Feedback<ViewState, ViewEvent> {
 		Feedback { [weak self] (state: ViewState) -> AnyPublisher<ViewEvent, Never> in
+			self?.updatePlaceholders(state: state)
+
 			guard case .loading = state,
 				  (self?.page.hasMore() ?? true) else {
 				return Empty().eraseToAnyPublisher()
@@ -57,7 +56,8 @@ private extension ArticlesViewModel {
 			do {
 				return try ArticlesService.get(page: (self?.page.current ?? 0) + 1)
 					.map {
-						self?.handleResponse($0)
+						self?.updatePage($0)
+						self?.updateArticles($0)
 						return ViewEvent.onLoaded
 					}
 					.catch { Just(ViewEvent.onFailed($0)) }
@@ -69,8 +69,20 @@ private extension ArticlesViewModel {
 		}
 	}
 
-	func handleResponse(_ response: ArticlesResponse) {
+	func updatePage(_ response: ArticlesResponse) {
 		page = page.increment(totalResults: response.totalResults)
+	}
+
+	func updateArticles(_ response: ArticlesResponse) {
 		articles.append(response.articles.compactMap(Article.init))
+	}
+
+	func updatePlaceholders(state: ViewState) {
+		var count: Int = 0
+		if state == .loading, page.hasMore() {
+			count = articles.isEmpty ? kArticle.pageSize / 2 : 1
+		}
+		let array = Array(repeating: Article.placeholder(), count: count).compactMap { $0 }
+		placeholders = SyncedArray(array)
 	}
 }

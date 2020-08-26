@@ -26,15 +26,15 @@ extension Article {
 		self.url = url
 	}
 
-	// swiftlint:disable non_localized_sentence
 	static func placeholder() -> Article? {
 		guard let url = URL(string: "https://www.apple.com") else {
 			return nil
 		}
-		return Article(id: UUID().uuidString,
+
+		let identifier = UUID().uuidString
+		return Article(id: identifier,
 					   image: url,
-					   title: "Article Title placeholder for Loading",
+					   title: identifier,
 					   url: url)
 	}
-	// swiftlint:enable non_localized_sentence
 }

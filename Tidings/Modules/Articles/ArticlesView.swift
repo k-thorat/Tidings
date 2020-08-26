@@ -45,8 +45,8 @@ struct ArticlesView: View {
 					}
 				}
 			}
-			if isLoading, viewModel.hasMore(), let article = Article.placeholder() {
-				ArticleCellView(article: article)
+			ForEach(viewModel.placeholders.compactMap { $0 }, id: \.self) {
+				ArticleCellView(article: $0)
 					.redacted(reason: .placeholder)
 			}
 		}
