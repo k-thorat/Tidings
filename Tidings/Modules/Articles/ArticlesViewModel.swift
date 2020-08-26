@@ -6,24 +6,25 @@
 import Combine
 import SwiftUI
 
-final class ArticlesViewModel: ObservableObject {
-	@Published private(set) var state: ViewState
-	@Published private(set) var articles = SyncedArray<Article>()
-	@Published private(set) var placeholders = SyncedArray<Article>()
+final class ArticlesViewModel: ArticlesViewModelType {
+	@Published private(set) var state: ViewState<[Article]>
+	@Published private(set) var dataSource = (contents: SyncedArray<Article>(),
+											  placeholders: SyncedArray<Article>())
 
-	private var page: Page
+	private var pages: Pages
 	private var subscriptions = Set<AnyCancellable>()
-	private let input = PassthroughSubject<ViewEvent, Never>()
+	private let response = PassthroughSubject<ArticlesResponse, Never>()
+	private let input = PassthroughSubject<ViewEvent<[Article]>, Never>()
 
 	init(
-		state: ViewState = .idle,
-		page: Page = Page()
+		state: ViewState<[Article]> = .idle,
+		pages: Pages = Pages()
 	) {
 		self.state = state
-		self.page = page
+		self.pages = pages
 		Publishers.system(
 			initial: state,
-			reduce: type(of: state).reduce,
+			reduce: ViewState<[Article]>.reduce,
 			scheduler: DispatchQueue.main,
 			feedbacks: [
 				whenLoading(),
@@ -32,9 +33,12 @@ final class ArticlesViewModel: ObservableObject {
 		)
 		.assignNoRetain(to: \.state, on: self)
 		.store(in: &subscriptions)
+
+		observeState()
+		observeResponse()
 	}
 
-	func send(event: ViewEvent) {
+	func send(event: ViewEvent<[Article]>) {
 		input.send(event)
 	}
 
@@ -44,23 +48,24 @@ final class ArticlesViewModel: ObservableObject {
 }
 
 private extension ArticlesViewModel {
-	func whenLoading() -> Feedback<ViewState, ViewEvent> {
-		Feedback { [weak self] (state: ViewState) -> AnyPublisher<ViewEvent, Never> in
-			self?.updatePlaceholders(state: state)
-
-			guard case .loading = state,
-				  (self?.page.hasMore() ?? true) else {
+	func whenLoading() -> Feedback<ViewState<[Article]>, ViewEvent<[Article]>> {
+		Feedback { [weak self] (state: ViewState) -> AnyPublisher<ViewEvent<[Article]>, Never> in
+			guard let self = self,
+				  case .loading = state,
+				  self.pages.hasMore() else {
 				return Empty().eraseToAnyPublisher()
 			}
 
 			do {
-				return try ArticlesService.get(page: (self?.page.current ?? 0) + 1)
-					.map {
-						self?.updatePage($0)
-						self?.updateArticles($0)
-						return ViewEvent.onLoaded
+				return try ArticlesService.get(page: self.pages.current + 1)
+					.map { [weak self] in
+						self?.response.send($0)
+						return $0.articles.compactMap(Article.init)
 					}
-					.catch { Just(ViewEvent.onFailed($0)) }
+					.map(ViewEvent.onLoaded)
+					.catch {
+						Just(ViewEvent.onFailed($0))
+					}
 					.eraseToAnyPublisher()
 			} catch {
 				return Just(ViewEvent.onFailed(error))
@@ -69,20 +74,36 @@ private extension ArticlesViewModel {
 		}
 	}
 
-	func updatePage(_ response: ArticlesResponse) {
-		page = page.increment(totalResults: response.totalResults)
-	}
-
-	func updateArticles(_ response: ArticlesResponse) {
-		articles.append(response.articles.compactMap(Article.init))
-	}
-
-	func updatePlaceholders(state: ViewState) {
-		var count: Int = 0
-		if state == .loading, page.hasMore() {
-			count = articles.isEmpty ? kArticle.pageSize / 2 : 1
+	func observeResponse() {
+		response.sink { [weak self] in
+			guard let self = self else {
+				return
+			}
+			self.pages.increment(results: $0.totalResults)
 		}
-		let array = Array(repeating: Article.placeholder(), count: count).compactMap { $0 }
-		placeholders = SyncedArray(array)
+		.store(in: &subscriptions)
+	}
+
+	func observeState() {
+		$state.sink { [weak self] in
+			guard let self = self else {
+				return
+			}
+			switch $0 {
+			case .loading:
+				let count = self.pages.hasMore()
+							? self.dataSource.contents.isEmpty ? kArticle.pageSize / 2 : 1
+							: 0
+				let array = Array(repeating: Article.placeholder(), count: count).compactMap { $0 }
+				self.dataSource.placeholders = SyncedArray(array)
+
+			case .loaded(let updated):
+				self.dataSource.contents.append(updated)
+
+			default:
+				break
+			}
+		}
+		.store(in: &subscriptions)
 	}
 }

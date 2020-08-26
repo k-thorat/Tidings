@@ -5,21 +5,20 @@
 
 import Foundation
 
-struct Page {
-	let current: Int
-	let max: Int?
+struct Pages {
+	var current: Int
+	var max: Int?
 
 	init(current: Int = 0, max: Int? = nil) {
 		self.current = current
 		self.max = max
 	}
 
-	func increment(totalResults: Int) -> Page {
-		//todo: property wrapper for set if nil?
-		let max = self.max == nil
-			? Int(ceil(Double(totalResults) / Double(kArticle.pageSize)))
-			: self.max
-		return Page(current: current + 1, max: max)
+	mutating func increment(results: Int) {
+		current += 1
+		if max == nil {
+			max = Int(ceil(Double(results) / Double(kArticle.pageSize)))
+		}
 	}
 
 	func hasMore() -> Bool {

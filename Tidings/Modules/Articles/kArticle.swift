@@ -4,7 +4,12 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum kArticle {
 	static let pageSize = 10
+
+	static func defaultView(model: ArticlesViewModel = ArticlesViewModel()) -> some View {
+		ArticlesView<ArticlesViewModel>(viewModel: model).tab()
+	}
 }

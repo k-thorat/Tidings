@@ -5,13 +5,13 @@
 
 import Foundation
 
-enum ViewState {
+enum ViewState<Element: Equatable> {
 	case error(Error)
 	case idle
 	case loading
-	case loaded
+	case loaded(Element)
 
-	static func reduce(_ state: ViewState, _ event: ViewEvent) -> ViewState {
+	static func reduce(_ state: ViewState<Element>, _ event: ViewEvent<Element>) -> ViewState {
 		switch state {
 		case .idle:
 			switch event {
@@ -27,8 +27,8 @@ enum ViewState {
 			case .onFailed(let error):
 				return .error(error)
 
-			case .onLoaded:
-				return .loaded
+			case .onLoaded(let element):
+				return .loaded(element)
 
 			default:
 				return state
@@ -61,8 +61,8 @@ extension ViewState: Equatable {
 		case (.loading, .loading):
 			return true
 
-		case (.loaded, .loaded):
-			return true
+		case let (.loaded(element1), .loaded(element2)):
+			return element1 == element2
 
 		default:
 			return false

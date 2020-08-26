@@ -16,7 +16,7 @@ class SyncedArray<Element> {
 	// swiftlint:enable non_localized_sentence
 	private var array = [Element]()
 
-	var raw: [Element] {
+	var elements: [Element] {
 		queue.sync { self.array }
 	}
 

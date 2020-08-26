@@ -5,6 +5,3 @@
 
 import Combine
 import SwiftUI
-
-protocol ArticlesViewType {
-}

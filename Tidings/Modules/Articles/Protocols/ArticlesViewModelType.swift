@@ -6,5 +6,10 @@
 import Combine
 import SwiftUI
 
-protocol ArticlesViewModelType {
+protocol ArticlesViewModelType: ObservableObject {
+	var state: ViewState<[Article]> { get }
+	var dataSource: (contents: SyncedArray<Article>,
+					 placeholders: SyncedArray<Article>) { get }
+
+	func send(event: ViewEvent<[Article]>)
 }

@@ -21,9 +21,9 @@ extension Feedback {
 		}
 	}
 
-	static func userInput(
-		input: AnyPublisher<ViewEvent, Never>
-	) -> Feedback<ViewState, ViewEvent> {
-		Feedback<ViewState, ViewEvent> { _ in input }
+	static func userInput<State, Event>(
+		input: AnyPublisher<Event, Never>
+	) -> Feedback<State, Event> {
+		Feedback<State, Event> { _ in input }
 	}
 }

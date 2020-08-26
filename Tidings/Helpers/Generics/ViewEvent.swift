@@ -5,9 +5,9 @@
 
 import Foundation
 
-enum ViewEvent {
+enum ViewEvent<Element: Equatable> {
 	case onAppear
-	case onLoaded
+	case onLoaded(Element)
 	case onNext
 	case onFailed(Error)
 }
@@ -18,8 +18,8 @@ extension ViewEvent: Equatable {
 		case (.onAppear, .onAppear):
 			return true
 
-		case (.onLoaded, .onLoaded):
-			return true
+		case let (.onLoaded(element1), .onLoaded(element2)):
+			return element1 == element2
 
 		case (.onNext, .onNext):
 			return true

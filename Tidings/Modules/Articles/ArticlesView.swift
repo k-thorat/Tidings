@@ -6,8 +6,8 @@
 import Combine
 import SwiftUI
 
-struct ArticlesView: View {
-	@ObservedObject private var viewModel: ArticlesViewModel
+struct ArticlesView<ViewModel>: View where ViewModel: ArticlesViewModelType {
+	@ObservedObject var viewModel: ViewModel
 
     var body: some View {
 		NavigationView {
@@ -23,58 +23,46 @@ struct ArticlesView: View {
 		case .idle:
 			return Color.clear.eraseToAnyView()
 
-		case .loading:
-			return articlesView(isLoading: true).eraseToAnyView()
-
 		case .error(let error):
 			return Text(error.localizedDescription).eraseToAnyView()
 
-		case .loaded:
-			return articlesView(isLoading: false).eraseToAnyView()
+		case .loading, .loaded:
+			return articlesView().eraseToAnyView()
 		}
 	}
 
-	private func articlesView(isLoading: Bool) -> some View {
+	private func articlesView() -> some View {
 		List {
-			ForEach(viewModel.articles.compactMap { $0 }, id: \.self) { article in
+			ForEach(viewModel.dataSource.contents.compactMap { $0 }, id: \.self) { article in
 				NavigationLink(destination: ContentView()) {
 					ArticleCellView(article: article)
 				}.onAppear {
-					if viewModel.articles.last == article {
+					if viewModel.dataSource.contents.last == article {
 						viewModel.send(event: .onNext)
 					}
 				}
 			}
-			ForEach(viewModel.placeholders.compactMap { $0 }, id: \.self) {
+			ForEach(viewModel.dataSource.placeholders.compactMap { $0 }, id: \.self) {
 				ArticleCellView(article: $0)
 					.redacted(reason: .placeholder)
 			}
 		}
 	}
-
-	private func loadingView() -> some View {
-		let articles = Array(repeating: Article.placeholder(),
-							 count: kArticle.pageSize)
-						.compactMap { $0 }
-		return List(articles) { article in
-			ArticleCellView(article: article)
-				.redacted(reason: .placeholder)
-		}
-	}
 }
 
 extension ArticlesView {
-	static func tab() -> some View {
-		ArticlesView(viewModel: ArticlesViewModel())
-			.tabItem {
-				Image(systemName: "phone")
-				Text(Localized.Module.articles.value())
-			}
+	func tab() -> some View {
+		self
+		.tabItem {
+			Image(systemName: "phone")
+			Text(Localized.Module.articles.value())
+		}
+		.eraseToAnyView()
 	}
 }
 
 struct ArticlesView_Previews: PreviewProvider {
     static var previews: some View {
-		ArticlesView.tab()
+		kArticle.defaultView()
     }
 }
