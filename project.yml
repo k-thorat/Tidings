@@ -5,6 +5,7 @@ include:
   - path: XcodeGen/Tidings.yml
   - path: XcodeGen/BuildSettings.yml
   - path: XcodeGen/Configs.yml
+  - path: XcodeGen/Packages.yml
   - path: XcodeGen/Schemes.yml
   - path: XcodeGen/Targets.yml
   - path: XcodeGen/Templates/SchemeTemplates.yml

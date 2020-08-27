@@ -1,0 +1,13 @@
+
+# https://github.com/yonaskolb/XcodeGen/blob/master/Docs/ProjectSpec.md
+
+################################################################################
+# Packages
+################################################################################
+
+# External Dependencies
+packages:
+  Kingfisher:
+    url: https://github.com/onevcat/Kingfisher
+    from: 5.14.0
+

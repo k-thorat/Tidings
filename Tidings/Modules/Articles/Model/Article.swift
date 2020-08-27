@@ -10,6 +10,7 @@ struct Article: Identifiable, Equatable, Hashable {
 	let id: String
 	let image: URL?
 	let title: String
+	let subtitle: String?
 	let url: URL
 }
 
@@ -23,18 +24,21 @@ extension Article {
 		self.id = UUID().uuidString
 		self.image = value.urlToImage
 		self.title = title
+		self.subtitle = value.source?.name
 		self.url = url
 	}
 
-	static func placeholder() -> Article? {
-		guard let url = URL(string: "https://www.apple.com") else {
-			return nil
+	static func placeholders(_ count: Int = 1) -> [Article] {
+		guard let image = Bundle.main.url(forResource: kArticle.placeholderImage, withExtension: "jpg") else {
+			return []
 		}
-
-		let identifier = UUID().uuidString
-		return Article(id: identifier,
-					   image: url,
-					   title: identifier,
-					   url: url)
+		// swiftlint:disable non_localized_sentence
+		return Array(0..<count).map {
+			Article(id: String($0),
+					image: image,
+					title: UUID().uuidString,
+					subtitle: "News Source",
+					url: image)
+		}
 	}
 }

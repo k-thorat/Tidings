@@ -4,32 +4,64 @@
 //
 
 import Foundation
+import KingfisherSwiftUI
 import SwiftUI
 
 struct ArticleCellView: View {
 	let article: Article
-	//@Environment(\.imageCache) var cache: ImageCache
+	private let viewPadding: CGFloat = 10.0
+	private let imageWidth: CGFloat = 100.0
+	private let imageRatio: CGFloat = 0.75
 
 	var body: some View {
 		HStack {
-			//thumbnail
-			title
+			VStack(alignment: .leading) {
+				thumbnail
+			}
+
+			VStack(alignment: .leading) {
+				title
+					.padding(.bottom, viewPadding / 2)
+				subtitle
+			}.padding(viewPadding)
 		}
+	}
+
+	private var thumbnail: some View {
+		KFImage(article.image)
+			.placeholder {
+				Image(systemName: kArticle.placeholderImage)
+			}
+			.cancelOnDisappear(true)
+			.resizable()
+			.aspectRatio(imageRatio, contentMode: .fit)
+			.frame(width: imageWidth)
+			.clipped()
 	}
 
 	private var title: some View {
 		Text(article.title)
-			.font(.title)
+			.lineLimit(3)
+			.modifier(TitleStyle())
 	}
 
-//	private var thumbnail: some View {
-//		KFImage(URL(string: "https://cbsnews1.cbsistatic.com/hub/i/r/2020/08/24/8e9d191d-ac6b-47d1-b314-0db2d661acd3/thumbnail/1200x630/596030a442901921340b6552c52abb9e/kenosha.png")!)
-//			.frame(width: 100, height: 100, alignment: .leading)
-//	}
+	private var subtitle: some View {
+		guard let subtitle = article.subtitle else {
+			return EmptyView().eraseToAnyView()
+		}
+		return Text(subtitle)
+			.lineLimit(1)
+			.modifier(SubtitleStyle())
+			.eraseToAnyView()
+	}
 }
 
+// swiftlint:disable all
 struct ArticleCellView_Previews: PreviewProvider {
 	static var previews: some View {
-		/*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
+		let articles = Article.placeholders(1)
+		List(articles) {
+			ArticleCellView(article: $0)
+		}
 	}
 }

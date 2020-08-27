@@ -12,6 +12,10 @@ targetTemplates:
     settings:
       INFOPLIST_FILE: ${target_name}/App/Config/Info.plist
     
+    # External/Internal Dependencies
+    dependencies:
+      - package: Kingfisher
+      
     # Source directories 
     sources:
       - ../../${target_name}

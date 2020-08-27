@@ -54,15 +54,17 @@ extension ArticlesView {
 	func tab() -> some View {
 		self
 		.tabItem {
-			Image(systemName: "phone")
+			Image(systemName: kArticle.tabImage)
 			Text(Localized.Module.articles.value())
 		}
 		.eraseToAnyView()
 	}
 }
 
+// swiftlint:disable all
 struct ArticlesView_Previews: PreviewProvider {
     static var previews: some View {
-		kArticle.defaultView()
+		let model = ArticlesViewModel(state: .loaded(Article.placeholders(2)), pages: Pages(current: 1, max: 1))
+		kArticle.defaultView(model: model)
     }
 }

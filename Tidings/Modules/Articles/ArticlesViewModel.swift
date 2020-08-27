@@ -92,10 +92,9 @@ private extension ArticlesViewModel {
 			switch $0 {
 			case .loading:
 				let count = self.pages.hasMore()
-							? self.dataSource.contents.isEmpty ? kArticle.pageSize / 2 : 1
+							? self.dataSource.contents.isEmpty ? kArticle.pageSize : 1
 							: 0
-				let array = Array(repeating: Article.placeholder(), count: count).compactMap { $0 }
-				self.dataSource.placeholders = SyncedArray(array)
+				self.dataSource.placeholders = SyncedArray(Article.placeholders(count))
 
 			case .loaded(let updated):
 				self.dataSource.contents.append(updated)

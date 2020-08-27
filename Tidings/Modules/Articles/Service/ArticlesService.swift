@@ -11,7 +11,7 @@ enum ArticlesService {
 		let queryItems = [
 			URLQueryItem(name: API.Query.country.rawValue, value: "au"),
 			URLQueryItem(name: API.Query.pageSize.rawValue, value: String(kArticle.pageSize)),
-			URLQueryItem(name: API.Query.country.rawValue, value: String(page))
+			URLQueryItem(name: API.Query.page.rawValue, value: String(page))
 		]
 		let request = ArticlesRequest(queryItems: queryItems)
 		return try Service().request(request)
