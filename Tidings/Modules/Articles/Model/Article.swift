@@ -29,7 +29,7 @@ extension Article {
 	}
 
 	static func placeholders(_ count: Int = 1) -> [Article] {
-		guard let image = Bundle.main.url(forResource: kArticle.placeholderImage, withExtension: "jpg") else {
+		guard let image = Bundle.main.url(forResource: "logo", withExtension: "jpg") else {
 			return []
 		}
 		// swiftlint:disable non_localized_sentence

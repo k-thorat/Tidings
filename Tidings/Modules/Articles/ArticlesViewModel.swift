@@ -63,9 +63,7 @@ private extension ArticlesViewModel {
 						return $0.articles.compactMap(Article.init)
 					}
 					.map(ViewEvent.onLoaded)
-					.catch {
-						Just(ViewEvent.onFailed($0))
-					}
+					.catch { Just(ViewEvent.onFailed($0)) }
 					.eraseToAnyPublisher()
 			} catch {
 				return Just(ViewEvent.onFailed(error))
