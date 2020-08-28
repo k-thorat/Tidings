@@ -5,9 +5,9 @@
 @testable import Tidings
 import Foundation
 
-class MockCancelable: Cancelable {
-	var wasCancelled: Bool = false
-	func cancel() {
-		wasCancelled = true
-	}
-}
+//class MockCancelable: Cancelable {
+//	var wasCancelled: Bool = false
+//	func cancel() {
+//		wasCancelled = true
+//	}
+//}

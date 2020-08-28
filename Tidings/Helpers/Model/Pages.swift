@@ -14,10 +14,10 @@ struct Pages {
 		self.max = max
 	}
 
-	mutating func increment(results: Int) {
+	mutating func receivedPage(total: Int, pageSize: Int) {
 		current += 1
 		if max == nil {
-			max = Int(ceil(Double(results) / Double(kArticle.pageSize)))
+			max = Int(ceil(Double(total) / Double(pageSize)))
 		}
 	}
 

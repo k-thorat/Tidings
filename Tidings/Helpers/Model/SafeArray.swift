@@ -8,8 +8,7 @@ import Foundation
 ///
 /// https://gist.github.com/basememara/afaae5310a6a6b97bdcdbe4c2fdcd0c6
 ///
-// todo: Test
-class SyncedArray<Element> {
+class SafeArray<Element> {
 	// swiftlint:disable non_localized_sentence
 	private let queue = DispatchQueue(label: "\(Bundle.main.bundleIdentifier ?? "BundleIdentifier").SyncedArray",
 									  attributes: .concurrent)
@@ -29,7 +28,7 @@ class SyncedArray<Element> {
 }
 
 // MARK: - Properties
-extension SyncedArray {
+extension SafeArray {
 	/// The first element of the collection.
 	var first: Element? {
 		var result: Element?
@@ -67,7 +66,7 @@ extension SyncedArray {
 }
 
 // MARK: - Immutable
-extension SyncedArray {
+extension SafeArray {
 	/// Returns the first element of the sequence that satisfies the given predicate.
 	///
 	/// - Parameter predicate: A closure that takes an element of the sequence as its argument and
@@ -97,9 +96,9 @@ extension SyncedArray {
 	/// - Parameter isIncluded: A closure that takes an element of the sequence as its argument and
 	/// returns a Boolean value indicating whether the element should be included in the returned array.
 	/// - Returns: An array of the elements that includeElement allowed.
-	func filter(_ isIncluded: @escaping (Element) -> Bool) -> SyncedArray {
-		var result: SyncedArray?
-		queue.sync { result = SyncedArray(self.array.filter(isIncluded)) }
+	func filter(_ isIncluded: @escaping (Element) -> Bool) -> SafeArray {
+		var result: SafeArray?
+		queue.sync { result = SafeArray(self.array.filter(isIncluded)) }
 		return result ?? self
 	}
 
@@ -120,9 +119,9 @@ extension SyncedArray {
 	/// - Parameter areInIncreasingOrder: A predicate that returns true if its first argument should
 	/// be ordered before its second argument; otherwise, false.
 	/// - Returns: A sorted array of the collection’s elements.
-	func sorted(by areInIncreasingOrder: (Element, Element) -> Bool) -> SyncedArray {
-		var result: SyncedArray?
-		queue.sync { result = SyncedArray(self.array.sorted(by: areInIncreasingOrder)) }
+	func sorted(by areInIncreasingOrder: (Element, Element) -> Bool) -> SafeArray {
+		var result: SafeArray?
+		queue.sync { result = SafeArray(self.array.sorted(by: areInIncreasingOrder)) }
 		return result ?? self
 	}
 
@@ -210,7 +209,7 @@ extension SyncedArray {
 }
 
 // MARK: - Mutable
-extension SyncedArray {
+extension SafeArray {
 	/// Adds a new element at the end of the array.
 	///
 	/// - Parameter element: The element to append to the array.
@@ -281,7 +280,7 @@ extension SyncedArray {
 	}
 }
 
-extension SyncedArray {
+extension SafeArray {
 	/// Accesses the element at the specified position if it exists.
 	///
 	/// - Parameter index: The position of the element to access.
@@ -310,7 +309,7 @@ extension SyncedArray {
 }
 
 // MARK: - Equatable
-extension SyncedArray where Element: Equatable {
+extension SafeArray where Element: Equatable {
 	/// Returns a Boolean value indicating whether the sequence contains the given element.
 	///
 	/// - Parameter element: The element to find in the sequence.
@@ -323,13 +322,13 @@ extension SyncedArray where Element: Equatable {
 }
 
 // MARK: - Infix operators
-extension SyncedArray {
+extension SafeArray {
 	/// Adds a new element at the end of the array.
 	///
 	/// - Parameters:
 	///   - left: The collection to append to.
 	///   - right: The element to append to the array.
-	static func += (left: inout SyncedArray, right: Element) {
+	static func += (left: inout SafeArray, right: Element) {
 		left.append(right)
 	}
 
@@ -338,7 +337,7 @@ extension SyncedArray {
 	/// - Parameters:
 	///   - left: The collection to append to.
 	///   - right: The elements to append to the array.
-	static func += (left: inout SyncedArray, right: [Element]) {
+	static func += (left: inout SafeArray, right: [Element]) {
 		left.append(right)
 	}
 }

@@ -15,6 +15,7 @@ targetTemplates:
     # External/Internal Dependencies
     dependencies:
       - package: Kingfisher
+        product: KingfisherSwiftUI
       
     # Source directories 
     sources:

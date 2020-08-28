@@ -40,8 +40,8 @@ extension URLResponseExtensionsTests {
 
 		for response in responses {
 			XCTAssert(
-				response.isStatusValid() == expectedResult,
-				"Status: \(response.statusCode) Expected:\(expectedResult) Returned: \(response.isStatusValid())"
+				response.isValid() == expectedResult,
+				"Status: \(response.statusCode) Expected:\(expectedResult) Returned: \(response.isValid())"
 			)
 		}
 	}

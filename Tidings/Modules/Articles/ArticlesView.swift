@@ -8,6 +8,8 @@ import SwiftUI
 
 struct ArticlesView<ViewModel>: View where ViewModel: ArticlesViewModelType {
 	@ObservedObject var viewModel: ViewModel
+	@State private var isPresented: Bool = false
+	@State private var selectedArticle: Article?
 
     var body: some View {
 		NavigationView {
@@ -34,9 +36,12 @@ struct ArticlesView<ViewModel>: View where ViewModel: ArticlesViewModelType {
 	private func articlesView() -> some View {
 		List {
 			ForEach(viewModel.dataSource.contents.compactMap { $0 }, id: \.self) { article in
-				NavigationLink(destination: ContentView()) {
-					ArticleCellView(article: article)
-				}.onAppear {
+				ArticleCellView(article: article)
+				.onTapGesture {
+					selectedArticle = article
+					isPresented.toggle()
+				}
+				.onAppear {
 					if viewModel.dataSource.contents.last == article {
 						viewModel.send(event: .onNext)
 					}
@@ -47,6 +52,13 @@ struct ArticlesView<ViewModel>: View where ViewModel: ArticlesViewModelType {
 					.redacted(reason: .placeholder)
 			}
 		}
+		.sheet(isPresented: $isPresented) { () -> SafariView? in
+			guard let article = selectedArticle else {
+				return nil
+			}
+			return SafariView(url: article.url)
+		}
+		.id(UUID())
 	}
 }
 

@@ -8,8 +8,8 @@ import SwiftUI
 
 final class ArticlesViewModel: ArticlesViewModelType {
 	@Published private(set) var state: ViewState<[Article]>
-	@Published private(set) var dataSource = (contents: SyncedArray<Article>(),
-											  placeholders: SyncedArray<Article>())
+	@Published private(set) var dataSource = (contents: SafeArray<Article>(),
+											  placeholders: SafeArray<Article>())
 
 	private var pages: Pages
 	private var subscriptions = Set<AnyCancellable>()
@@ -24,7 +24,7 @@ final class ArticlesViewModel: ArticlesViewModelType {
 		self.pages = pages
 		Publishers.system(
 			initial: state,
-			reduce: ViewState<[Article]>.reduce,
+			reduce: ReduceUtil.reduce,
 			scheduler: DispatchQueue.main,
 			feedbacks: [
 				whenLoading(),
@@ -77,7 +77,7 @@ private extension ArticlesViewModel {
 			guard let self = self else {
 				return
 			}
-			self.pages.increment(results: $0.totalResults)
+			self.pages.receivedPage(total: $0.totalResults, pageSize: kArticle.pageSize)
 		}
 		.store(in: &subscriptions)
 	}
@@ -92,7 +92,7 @@ private extension ArticlesViewModel {
 				let count = self.pages.hasMore()
 							? self.dataSource.contents.isEmpty ? kArticle.pageSize : 1
 							: 0
-				self.dataSource.placeholders = SyncedArray(Article.placeholders(count))
+				self.dataSource.placeholders = SafeArray(Article.placeholders(count))
 
 			case .loaded(let updated):
 				self.dataSource.contents.append(updated)
