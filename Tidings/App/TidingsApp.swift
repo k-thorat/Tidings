@@ -16,7 +16,7 @@ struct TidingsApp: App {
 	static func tab() -> some View {
 		TabView {
 			kArticle.defaultView()
-			SourcesView.tab()
+			kSources.defaultView()
 		}
 	}
 }

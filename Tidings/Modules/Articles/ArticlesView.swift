@@ -15,7 +15,8 @@ struct ArticlesView<ViewModel>: View where ViewModel: ArticlesViewModelType {
 		NavigationView {
 			content
 			.navigationBarTitle(Text(Localized.Module.articles.value()))
-		}.onAppear {
+		}
+		.onAppear {
 			self.viewModel.send(event: .onAppear)
 		}
 	}

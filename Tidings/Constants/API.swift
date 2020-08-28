@@ -8,6 +8,7 @@ import UIKit
 enum API {
 	enum Endpoint: String {
 		case headlines = "top-headlines"
+		case sources
 	}
 
 	enum Query: String {

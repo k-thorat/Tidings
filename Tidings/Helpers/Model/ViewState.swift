@@ -10,43 +10,6 @@ enum ViewState<Element: Equatable> {
 	case idle
 	case loading
 	case loaded(Element)
-
-//	static func reduce(_ state: ViewState<Element>, _ event: ViewEvent<Element>) -> ViewState {
-//		switch state {
-//		case .idle:
-//			switch event {
-//			case .onAppear:
-//				return .loading
-//
-//			default:
-//				return state
-//			}
-//
-//		case .loading:
-//			switch event {
-//			case .onFailed(let error):
-//				return .error(error)
-//
-//			case .onLoaded(let element):
-//				return .loaded(element)
-//
-//			default:
-//				return state
-//			}
-//
-//		case .loaded:
-//			switch event {
-//			case .onNext:
-//				return .loading
-//
-//			default:
-//				return state
-//			}
-//
-//		case .error:
-//			return state
-//		}
-//	}
 }
 
 extension ViewState: Equatable {
