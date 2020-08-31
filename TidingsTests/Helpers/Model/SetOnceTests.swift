@@ -18,11 +18,11 @@ class SetOnceTests: XCTestCase {
 		XCTAssertNil(onceNullable)
 		let updated = UUID().uuidString
 		onceNullable = updated
-		XCTAssert(onceNullable == updated)
+		XCTAssertEqual(onceNullable, updated)
 		onceNullable = UUID().uuidString
-		XCTAssert(onceNullable == updated)
+		XCTAssertEqual(onceNullable, updated)
 		onceNullable = nil
-		XCTAssert(onceNullable == nil)
+		XCTAssertEqual(onceNullable, nil)
 	}
 
 	func testSetOnceNotNullable() {
@@ -30,11 +30,11 @@ class SetOnceTests: XCTestCase {
 		XCTAssertNil(onceNotNullable)
 		let updated = UUID().uuidString
 		onceNotNullable = updated
-		XCTAssert(onceNotNullable == updated)
+		XCTAssertEqual(onceNotNullable, updated)
 		onceNotNullable = UUID().uuidString
-		XCTAssert(onceNotNullable == updated)
+		XCTAssertEqual(onceNotNullable, updated)
 		onceNotNullable = nil
-		XCTAssert(onceNotNullable == updated)
+		XCTAssertEqual(onceNotNullable, updated)
 	}
 }
 

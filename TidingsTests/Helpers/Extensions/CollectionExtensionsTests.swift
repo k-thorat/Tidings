@@ -11,7 +11,7 @@ class CollectionExtensionsTests: XCTestCase {
 		let array = [1, 2, 3, 4]
 		let element = array[safe: 3]
 		XCTAssertNotNil(element)
-		XCTAssertTrue(element == 4)
+		XCTAssertEqual(element, 4)
 	}
 
 	func testInvalidRange() {

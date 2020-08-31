@@ -9,11 +9,11 @@ struct SourcesResponse: Decodable {
 	struct Source: Codable {
 		let id: String
 		let name: String
-		let description: String
+		let description: String?
 		let url: URL
-		let category: String
-		let language: String
-		let country: String
+		let category: String?
+		let language: String?
+		let country: String?
 	}
 
 	let status: String

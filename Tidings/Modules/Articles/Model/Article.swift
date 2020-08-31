@@ -17,13 +17,12 @@ struct Article: Identifiable, Equatable, Hashable {
 extension Article {
 	init?(response: Throwable<ArticlesResponse.Article>) {
 		guard let value = response.value,
-			  let url = value.url,
-			  let title = value.title else {
+			  let url = value.url else {
 			return nil
 		}
 		self.id = UUID().uuidString
 		self.image = value.urlToImage
-		self.title = title
+		self.title = value.title
 		self.subtitle = value.source?.name
 		self.url = url
 	}

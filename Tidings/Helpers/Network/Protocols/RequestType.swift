@@ -10,7 +10,7 @@ protocol RequestType {
 	var endpoint: API.Endpoint { get }
 	var headers: [String: String] { get }
 	var queryItems: [URLQueryItem] { get }
-
+	//var constrainedAccess: Bool { get }
 	func path() -> String
 	func urlRequest() throws -> URLRequest
 }

@@ -20,6 +20,20 @@ class URLResponseExtensionsTests: XCTestCase {
 			expectedResult: false
 		)
 	}
+
+	func testInValidObject() {
+
+		let url = URL(string: "https://www.apple.com")!
+
+		let response = URLResponse(
+			url: url,
+			mimeType: nil,
+			expectedContentLength: 0,
+			textEncodingName: nil
+		)
+
+		XCTAssertEqual(response.isValid(), false)
+	}
 }
 
 extension URLResponseExtensionsTests {
@@ -39,8 +53,8 @@ extension URLResponseExtensionsTests {
 		}
 
 		for response in responses {
-			XCTAssert(
-				response.isValid() == expectedResult,
+			XCTAssertEqual(
+				response.isValid(), expectedResult,
 				"Status: \(response.statusCode) Expected:\(expectedResult) Returned: \(response.isValid())"
 			)
 		}

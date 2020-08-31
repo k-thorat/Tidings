@@ -20,7 +20,7 @@ extension Source {
 		}
 		self.id = UUID().uuidString
 		self.title = source.name
-		self.subtitle = source.description
+		self.subtitle = source.description ?? ""
 		self.url = source.url
 	}
 

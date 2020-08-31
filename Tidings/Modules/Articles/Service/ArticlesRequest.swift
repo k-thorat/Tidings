@@ -12,3 +12,13 @@ struct ArticlesRequest: RequestType {
 	let headers: [String: String] = [:]
 	let queryItems: [URLQueryItem]
 }
+
+extension ArticlesRequest {
+	init(page: Int, country: API.Query.Country = .australia) {
+		self.queryItems = [
+			URLQueryItem(name: API.Query.country.rawValue, value: country.rawValue),
+			URLQueryItem(name: API.Query.pageSize.rawValue, value: String(kArticle.pageSize)),
+			URLQueryItem(name: API.Query.page.rawValue, value: String(page))
+		]
+	}
+}
